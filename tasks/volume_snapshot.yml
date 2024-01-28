@@ -1,0 +1,6 @@
+- name: Taking volume snapshot for backup
+  openstack.cloud.volume_backup:
+    snapshot: "{{ item.name }}-snapshot-{{ ansible_date_time.iso8601 }}"
+    name: "{{ item.name }}"
+    volume: "{{ item.volume_name }}"
+  loop: "{{ volume-snapshot }}"
